@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eli Campos | Firmware Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        background-color: #050505;
+        font-family: 'VT323', monospace;
+        overflow: hidden; /* Handle scroll inside the CRT container */
+      }
+
+      /* Enhanced CRT Flicker */
+      @keyframes flicker {
+        0% { opacity: 0.95; }
+        2% { opacity: 0.98; }
+        4% { opacity: 0.90; }
+        6% { opacity: 0.95; }
+        8% { opacity: 0.99; }
+        10% { opacity: 0.92; }
+        12% { opacity: 0.97; }
+        14% { opacity: 0.85; }
+        16% { opacity: 0.95; }
+        18% { opacity: 0.99; }
+        20% { opacity: 0.90; }
+        50% { opacity: 0.98; }
+        80% { opacity: 0.93; }
+        100% { opacity: 0.95; }
+      }
+
+      @keyframes scanline {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(100%); }
+      }
+
+      /* Old TV Star/Beam Boot Up Animation */
+      @keyframes turn-on {
+        0% { transform: scale(0, 0); opacity: 1; filter: brightness(30); }
+        30% { transform: scale(0, 0); opacity: 1; filter: brightness(30); }
+        50% { transform: scale(0.01, 0.002); opacity: 1; filter: brightness(30); }
+        60% { transform: scale(1, 0.002); opacity: 1; filter: brightness(30); }
+        70% { transform: scale(1, 0.002); opacity: 1; filter: brightness(10); }
+        80% { transform: scale(1, 1.2); opacity: 1; filter: brightness(5); }
+        100% { transform: scale(1, 1); opacity: 1; filter: brightness(1) saturate(1.2); }
+      }
+
+      @keyframes noise-shift {
+        0%, 100% { background-position: 0 0; }
+        10% { background-position: -5% -10%; }
+        20% { background-position: -15% 5%; }
+        30% { background-position: 7% -25%; }
+        40% { background-position: 20% 25%; }
+        50% { background-position: -25% 10%; }
+        60% { background-position: 15% 5%; }
+        70% { background-position: 0% 15%; }
+        80% { background-position: 25% 35%; }
+        90% { background-position: -10% 10%; }
+      }
+
+      @keyframes text-chromatic {
+        0% { text-shadow: 3px 0 rgba(255,0,0,0.4), -3px 0 rgba(0,0,255,0.4); }
+        33% { text-shadow: -2px 0 rgba(255,0,0,0.4), 2px 0 rgba(0,0,255,0.4); }
+        66% { text-shadow: 0 2px rgba(255,0,0,0.4), 0 -2px rgba(0,0,255,0.4); }
+        100% { text-shadow: 2px 0 rgba(255,0,0,0.4), -2px 0 rgba(0,0,255,0.4); }
+      }
+
+      .crt-flicker {
+        animation: flicker 0.1s infinite;
+      }
+      
+      .chromatic-text {
+         animation: text-chromatic 2.5s infinite alternate;
+      }
+
+      .scanlines-anim {
+        animation: scanline 6s linear infinite;
+      }
+
+      .text-glow {
+        text-shadow: 0 0 2px #39ff14, 0 0 10px #39ff14, 0 0 20px #39ff14;
+      }
+      
+      .box-glow {
+        box-shadow: 0 0 10px rgba(57, 255, 20, 0.5), inset 0 0 20px rgba(57, 255, 20, 0.2);
+      }
+      
+      /* Noise Pattern */
+      .noise-bg {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.5'/%3E%3C/svg%3E");
+      }
+
+      /* Scrollbar styling for retro feel */
+      ::-webkit-scrollbar {
+        width: 14px;
+        background: #000;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #39ff14;
+        border: 2px solid #000;
+      }
+      ::-webkit-scrollbar-corner {
+        background: #000;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

@@ -63,20 +63,12 @@ export const EDUCATION: Education = {
 export const SKILLS: SkillCategory[] = [
   {
     category: "Languages",
-    items: [
-      "C++",
-      "C",
-      "Python",
-      "VHDL",
-      "Assembly",
-      "JavaScript",
-      "TypeScript",
-    ],
+    items: ["C++", "C", "Python", "VHDL", "Assembly"],
   },
   {
     category: "Embedded & Hardware",
     items: [
-      "RTOS (FreeRTOS)",
+      "FreeRTOS",
       "STM32",
       "ESP32",
       "Arduino",
@@ -84,6 +76,10 @@ export const SKILLS: SkillCategory[] = [
       "SPI",
       "UART",
       "GPIO",
+      "DMA",
+      "DAC",
+      "ADC",
+      "EBI",
       "Bluetooth",
       "Oscilloscopes",
       "Logic Analyzers",
@@ -152,18 +148,19 @@ export const EXPERIENCE: Experience[] = [
     ],
     skills: ["C++", "SOFA Framework", "Simulation", "Git"],
   },
+  {
+    company: "InnoGators",
+    role: "Co-Leader of Electrical Engineering Team",
+    duration: "Jan 2022 - Jan 2023",
+    location: "Gainesville, Florida",
+    description: [
+      "Helped fulfill technical tasks for University departments, such as creating a drone to water fields for the Dept of Agriculture. Collaborated with Mechanical, Business, and Software teams to solve real-world engineering hurdles, manage budgets, and handle manufacturing complications.",
+    ],
+    skills: ["C++", "Arduino", "Circuit Design", "Team Leadership"],
+  },
 ];
 
 export const PROJECTS: Project[] = [
-  {
-    title: "Reflexion",
-    subtitle: "PennApps Best Hardware Hack",
-    description:
-      "Wearable device utilizing ESP32, flex sensors, and EMG to track athlete movement for physical therapy. Transmits data via Bluetooth to a web interface for real-time analysis using Tune AI for personalized feedback.",
-    techStack: ["ESP32", "C++", "Bluetooth", "Angular", "Python", "Circuits"],
-    imageUrl: "/images/Gluecose Pic.png",
-    link: "https://devpost.com/software/glucose",
-  },
   {
     title: "Echo Hand",
     subtitle: "VR Haptic Glove",
@@ -174,6 +171,15 @@ export const PROJECTS: Project[] = [
     link: "https://github.com/elicampos/EchoHand",
   },
   {
+    title: "Reflexion",
+    subtitle: "PennApps Best Hardware Hack",
+    description:
+      "Wearable device utilizing ESP32, flex sensors, and EMG to track athlete movement for physical therapy. Transmits data via Bluetooth to a web interface for real-time analysis using Tune AI for personalized feedback.",
+    techStack: ["ESP32", "C++", "Bluetooth", "Angular", "Python", "Circuits"],
+    imageUrl: "/images/Gluecose Pic.png",
+    link: "https://devpost.com/software/glucose",
+  },
+  {
     title: "Custom CPU Design",
     subtitle: "FPGA Implementation",
     description:
@@ -181,6 +187,31 @@ export const PROJECTS: Project[] = [
     techStack: ["VHDL", "Intel Quartus", "Digital Logic", "FPGA"],
     imageUrl: "/images/8-bit cpu.jpg",
     link: "https://www.youtube.com/watch?v=ELPmNE3HXZk",
+  },
+  {
+    title: "WAD File System",
+    subtitle: "FUSE & Systems Programming",
+    description:
+      "Developed a userspace file system (FUSE) to parse and mount WAD files (Doom assets). Implemented a custom tree structure for file hierarchy, O(1) path lookups, and POSIX-compliant operations (read/write/mkdir) handling raw binary data offsets.",
+    techStack: ["C++", "FUSE API", "Linux", "Data Structures"],
+    imageUrl: "/images/wad_filesystem.png",
+    link: "https://www.youtube.com/watch?v=L4Lxz4wpUUc",
+  },
+  {
+    title: "External Bus Interface Expansion",
+    subtitle: "Microcontroller Hardware Design",
+    description:
+      "Utilized the External Bus Interface (EBI) on an ATxmega128A1U to map external components to data memory. Designed and constructed a hardware expansion utilizing SRAM, input/output ports, and LED/switch circuits, validating memory mapping via Assembly.",
+    techStack: ["Assembly", "EBI", "SRAM", "Circuit Design"],
+    imageUrl: "/images/ebi_expansion.png",
+  },
+  {
+    title: "DMA Synthesizer Keyboard",
+    subtitle: "Embedded Audio System",
+    description:
+      "Created an interactive synthesizer piano controlled via PC keyboard over USART. Integrated DMA, DAC, and Timer/Counters (TC) to generate precise audio waveforms efficiently, offloading data transfer tasks from the CPU.",
+    techStack: ["DMA", "USART", "DAC", "Timers", "Embedded C"],
+    imageUrl: "/images/dma_piano.png",
   },
   {
     title: "StudyHedge",
@@ -201,11 +232,53 @@ export const PROJECTS: Project[] = [
     link: "https://youtu.be/ZBB4eDdvJvk?si=BAMbkWfIul1pwOSI",
   },
   {
+    title: "FPGA Parallel FIR Filter",
+    subtitle: "Digital Signal Processing",
+    description:
+      "Designed an 8-tap Finite Impulse Response (FIR) filter using VHDL on a DE10-Lite FPGA. Implemented parallel processing via pipelined architecture  and functional decomposition. Integrated IEEE-754 floating-point IPs and validated performance using ModelSim and In-System Memory Content Editor.",
+    techStack: ["VHDL", "Intel Quartus", "ModelSim", "FPGA", "DSP"],
+    imageUrl: "/images/fpga_fir.png",
+  },
+  {
+    title: "Digital Audio Synthesizer & Noise Reduction",
+    subtitle: "MATLAB Signal Processing",
+    description:
+      "Engineered a suite of audio processing tools. Developed a synthesizer with ADSR envelopes  to model instrument acoustics from MIDI files. Designed and analyzed IIR/FIR Notch filters to isolate and remove interference frequencies from corrupted audio, validated via Z-plane and DTFT analysis.",
+    techStack: ["MATLAB", "Signal Processing", "Filter Design", "Spectrograms"],
+    imageUrl: "/images/matlab_audio.png",
+  },
+  {
+    title: "Image Sampling & Reconstruction",
+    subtitle: "Computer Vision Fundamentals",
+    description:
+      "Investigated sampling theorems and aliasing effects on high-resolution images. Implemented custom anti-aliasing low-pass filters and linear interpolation algorithms to reconstruct downsampled images, effectively reducing visual artifacts  and preserving texture data.",
+    techStack: ["MATLAB", "Image Processing", "Anti-Aliasing"],
+    imageUrl: "/images/image_processing.png",
+  },
+  {
     title: "Formy",
     subtitle: "Physical Fitness Product",
     description:
       "Physical fitness product using algorithms to detect exercise progression and form. Designed the product from schematic to manufacturing approval.",
     techStack: ["C++", "Arduino", "Circuit Design", "Product Design"],
     imageUrl: "/images/formy.jpg",
+  },
+  {
+    title: "Examlytics",
+    subtitle: "HackHarvard Project",
+    description:
+      "Transforms course practice exams into concise, streamlined overviews. Categorizes content into digestible sections containing frequency-ranked topics, key tips, and essential formulas. Built with a Python backend and React frontend using WebSockets.",
+    techStack: ["React.js", "Python", "WebSocket", "Algorithms"],
+    imageUrl: "/images/examlytics.png",
+    link: "https://devpost.com/software/project-idotpj",
+  },
+  {
+    title: "Chownow",
+    subtitle: "Food Discovery App",
+    description:
+      "An application that provides users with information about nearby food places based on preferences like food type, distance, and budget, resulting in a time-efficient method to find food compared to general map apps.",
+    techStack: ["React.js", "Next.js", "Django", "Python"],
+    imageUrl: "/images/chownow.jpg",
+    link: "https://devpost.com/software/chownow",
   },
 ];

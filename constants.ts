@@ -180,6 +180,30 @@ export const PROJECTS: Project[] = [
     link: "https://devpost.com/software/glucose",
   },
   {
+    title: "RP2040 Orientation Display",
+    subtitle: "Embedded Rust & Sensors",
+    description:
+      "Developed firmware in Rust for the Adafruit Feather RP2040 to control an 8x8 NeoPixel matrix. Integrated an LIS3DH accelerometer to trigger unique visual animations (e.g., Led Traversal, Heartbreak) based on real-time 4D device orientation.",
+    techStack: ["Embedded Rust", "RP2040", "I2C"],
+    imageUrl: "/images/rp2040_display.png",
+  },
+  {
+    title: "x86 Real-Mode Drivers",
+    subtitle: "Low-Level Driver Development",
+    description:
+      "Built generic drivers for Mouse input and VGA output targeting x86 Real Mode within DOSBox. Implemented inline assembly for hardware interrupts (INT) and register manipulation to handle TSR programs and video memory.",
+    techStack: ["C", "x86 Assembly"],
+    imageUrl: "/images/dos_drivers.png",
+  },
+  {
+    title: "Lithium Battery Protection PCB",
+    subtitle: "Power Electronics Design",
+    description:
+      "Designed a PCB to protect 3-cell lithium battery packs from undervoltage damage and excess current draw. Translated 'Elliott Sound Products Project 184' schematic into a custom PCB layout and generated Gerber files for manufacturing.",
+    techStack: ["PCB Design", "Analog Circuits", "KiCad"],
+    imageUrl: "/images/battery_pcb.png",
+  },
+  {
     title: "Custom CPU Design",
     subtitle: "FPGA Implementation",
     description:
